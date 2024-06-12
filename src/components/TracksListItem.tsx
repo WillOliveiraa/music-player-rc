@@ -4,26 +4,26 @@ import { Entypo, Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { unknownTrackImageUri } from '../constants/images';
+import { Track, useActiveTrack } from 'react-native-track-player';
 
 export type TracksListItemProps = {
-	track: { title: string; image?: string; artist?: string };
-	// onTrackSelect: (track: Track) => void;
+	track: Track;
+	onTrackSelect: (track: Track) => void;
 };
 
 export const TracksListItem = ({
 	track,
-	// onTrackSelect: handleTrackSelect,
+	onTrackSelect: handleTrackSelect,
 }: TracksListItemProps) => {
-	// const isActiveTrack = useActiveTrack()?.url === track.url
-	const isActiveTrack = false;
+	const isActiveTrack = useActiveTrack()?.url === track.url;
 
 	return (
-		<TouchableHighlight>
+		<TouchableHighlight onPress={() => handleTrackSelect(track)}>
 			<View style={styles.trackItemContainer}>
 				<View>
 					<FastImage
 						source={{
-							uri: track.image ?? unknownTrackImageUri,
+							uri: track.artwork ?? unknownTrackImageUri,
 							priority: FastImage.priority.normal,
 						}}
 						style={{
@@ -59,6 +59,7 @@ export const TracksListItem = ({
 							</Text>
 						)}
 					</View>
+					<Entypo name="dots-three-horizontal" size={18} color={colors.icon} />
 				</View>
 			</View>
 		</TouchableHighlight>

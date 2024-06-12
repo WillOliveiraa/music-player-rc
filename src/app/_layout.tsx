@@ -1,8 +1,26 @@
-import { Stack } from 'expo-router';
+import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useSetupTrackPlayer } from '../hooks/useSetupTrackPlayer';
+import TrackPlayer from 'react-native-track-player';
+import { useCallback } from 'react';
+import { useLogTrackPlayerState } from '../hooks/useLogTrackPlayerState';
+
+SplashScreen.preventAutoHideAsync();
+
+// TrackPlayer.registerPlaybackService(() => playbackService);
 
 const App = () => {
+	const handleTrackPlayerLoaded = useCallback(() => {
+		SplashScreen.hideAsync();
+	}, []);
+
+	useSetupTrackPlayer({
+		onLoad: handleTrackPlayerLoaded,
+	});
+
+	useLogTrackPlayerState();
+
 	return (
 		<SafeAreaProvider>
 			{/* <GestureHandlerRootView style={{ flex: 1 }}> */}
@@ -48,3 +66,6 @@ const RootNavigation = () => {
 };
 
 export default App;
+function handleTrackPlayerLoaded(): void {
+	throw new Error('Function not implemented.');
+}

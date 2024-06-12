@@ -3,10 +3,11 @@ import { FlatList, FlatListProps, Text, View } from 'react-native';
 import { utilsStyles } from '../styles';
 import library from '@/assets/data/library.json';
 import { TracksListItem } from './TracksListItem';
+import { Track } from 'react-native-track-player';
 
-export type TracksListProps = Partial<FlatListProps<any>> & {
+export type TracksListProps = Partial<FlatListProps<Track>> & {
 	// id: string;
-	tracks: any[];
+	tracks: Track[];
 	hideQueueControls?: boolean;
 };
 
@@ -20,6 +21,10 @@ export const TracksList = ({
 	hideQueueControls = false,
 	...flatlistProps
 }: TracksListProps) => {
+	const handleTrackSelect = async (selectedTrack: Track) => {
+		console.log(selectedTrack);
+	};
+
 	return (
 		<FlatList
 			data={tracks}
@@ -37,7 +42,7 @@ export const TracksList = ({
 			ListFooterComponent={ItemDivider}
 			ItemSeparatorComponent={ItemDivider}
 			renderItem={({ item: track }) => (
-				<TracksListItem track={{ ...track, image: track.artwork }} />
+				<TracksListItem track={track} onTrackSelect={handleTrackSelect} />
 			)}
 			{...flatlistProps}
 		/>
