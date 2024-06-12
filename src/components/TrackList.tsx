@@ -3,7 +3,7 @@ import { FlatList, FlatListProps, Text, View } from 'react-native';
 import { utilsStyles } from '../styles';
 import library from '@/assets/data/library.json';
 import { TracksListItem } from './TracksListItem';
-import { Track } from 'react-native-track-player';
+import TrackPlayer, { Track } from 'react-native-track-player';
 
 export type TracksListProps = Partial<FlatListProps<Track>> & {
 	// id: string;
@@ -22,7 +22,8 @@ export const TracksList = ({
 	...flatlistProps
 }: TracksListProps) => {
 	const handleTrackSelect = async (selectedTrack: Track) => {
-		console.log(selectedTrack);
+		await TrackPlayer.load(selectedTrack);
+		await TrackPlayer.play();
 	};
 
 	return (

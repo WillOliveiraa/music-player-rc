@@ -3,6 +3,7 @@ import { colors, fontSize } from '../../constants/tokens';
 import { BlurView } from 'expo-blur';
 import { StyleSheet } from 'react-native';
 import { FontAwesome, MaterialCommunityIcons, Ionicons, FontAwesome6 } from '@expo/vector-icons';
+import { FloatingPlayer } from '../../components/FloatingPlayer';
 
 const TabsNavigation = () => {
 	return (
@@ -47,7 +48,7 @@ const TabsNavigation = () => {
 					options={{
 						title: 'Playlists',
 						tabBarIcon: ({ color }) => (
-						<MaterialCommunityIcons name="playlist-play" size={28} color={color} />
+							<MaterialCommunityIcons name="playlist-play" size={28} color={color} />
 						),
 					}}
 				/>
@@ -56,7 +57,7 @@ const TabsNavigation = () => {
 					options={{
 						title: 'Songs',
 						tabBarIcon: ({ color }) => (
-						<Ionicons name="musical-notes-sharp" size={24} color={color} />
+							<Ionicons name="musical-notes-sharp" size={24} color={color} />
 						),
 					}}
 				/>
@@ -69,14 +70,14 @@ const TabsNavigation = () => {
 				/>
 			</Tabs>
 
-			{/* <FloatingPlayer
+			<FloatingPlayer
 				style={{
 					position: 'absolute',
 					left: 8,
 					right: 8,
 					bottom: 78,
 				}}
-			/> */}
+			/>
 		</>
 	);
 };
