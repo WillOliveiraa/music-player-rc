@@ -22,7 +22,6 @@
         "@typescript-eslint",
         "react",
         "react-hooks",
-        "eslint-plugin-unused-imports",
         "import"
     ],
     "rules": {
