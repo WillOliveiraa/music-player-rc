@@ -1,9 +1,10 @@
-import { Tabs } from 'expo-router';
-import { colors, fontSize } from '../../constants/tokens';
-import { BlurView } from 'expo-blur';
-import { StyleSheet } from 'react-native';
 import { FontAwesome, MaterialCommunityIcons, Ionicons, FontAwesome6 } from '@expo/vector-icons';
+import { BlurView } from 'expo-blur';
+import { Tabs } from 'expo-router';
+import { StyleSheet } from 'react-native';
+
 import { FloatingPlayer } from '../../components/FloatingPlayer';
+import { colors, fontSize } from '../../constants/tokens';
 
 const TabsNavigation = () => {
 	return (

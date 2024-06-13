@@ -21,13 +21,39 @@
     "plugins": [
         "@typescript-eslint",
         "react",
-        "react-hooks"
+        "react-hooks",
+        "eslint-plugin-unused-imports",
+        "import"
     ],
     "rules": {
-        "import/order": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "react/react-in-jsx-scope": "off",
         "react/display-name": "off",
-        "@typescript-eslint/no-unused-vars": "warn"
+        "@typescript-eslint/no-unused-vars": "warn",
+        "import/order": [
+            "error",
+            {
+                "groups": [
+                    "builtin",
+                    "external",
+                    "internal"
+                ],
+                "pathGroups": [
+                    {
+                        "pattern": "react",
+                        "group": "external",
+                        "position": "before"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": [
+                    "react"
+                ],
+                "newlines-between": "always",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                }
+            }
+        ]
     }
 }
