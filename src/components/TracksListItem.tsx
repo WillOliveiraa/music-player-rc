@@ -1,10 +1,14 @@
-import { colors, fontSize } from '@/constants/tokens';
-import { defaultStyles } from '@/styles';
+import React from 'react';
+
 import { Entypo, Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import LoaderKit from 'react-native-loader-kit';
+import { Track, useActiveTrack, useIsPlaying } from 'react-native-track-player';
+
 import { unknownTrackImageUri } from '../constants/images';
-import { Track, useActiveTrack } from 'react-native-track-player';
+import { colors, fontSize } from '@/constants/tokens';
+import { defaultStyles } from '@/styles';
 
 export type TracksListItemProps = {
 	track: Track;
@@ -15,6 +19,7 @@ export const TracksListItem = ({
 	track,
 	onTrackSelect: handleTrackSelect,
 }: TracksListItemProps) => {
+	const { playing } = useIsPlaying();
 	const isActiveTrack = useActiveTrack()?.url === track.url;
 
 	return (
@@ -31,6 +36,21 @@ export const TracksListItem = ({
 							opacity: isActiveTrack ? 0.6 : 1,
 						}}
 					/>
+					{isActiveTrack &&
+						(playing ? (
+							<LoaderKit
+								style={styles.trackPlayingIconIndicator}
+								name="LineScaleParty"
+								color={colors.icon}
+							/>
+						) : (
+							<Ionicons
+								style={styles.trackPausedIndicator}
+								name="play"
+								size={24}
+								color={colors.icon}
+							/>
+						))}
 				</View>
 
 				<View

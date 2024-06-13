@@ -1,9 +1,13 @@
 import React from 'react';
+
 import { FlatList, FlatListProps, Text, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
+import TrackPlayer, { Track } from 'react-native-track-player';
+
+import { TracksListItem } from './TracksListItem';
+import { unknownTrackImageUri } from '../constants/images';
 import { utilsStyles } from '../styles';
 import library from '@/assets/data/library.json';
-import { TracksListItem } from './TracksListItem';
-import TrackPlayer, { Track } from 'react-native-track-player';
 
 export type TracksListProps = Partial<FlatListProps<Track>> & {
 	// id: string;
@@ -34,10 +38,10 @@ export const TracksList = ({
 				<View>
 					<Text style={utilsStyles.emptyContentText}>No songs found</Text>
 
-					{/* <FastImage
+					<FastImage
 						source={{ uri: unknownTrackImageUri, priority: FastImage.priority.normal }}
 						style={utilsStyles.emptyContentImage}
-					/> */}
+					/>
 				</View>
 			}
 			ListFooterComponent={ItemDivider}
