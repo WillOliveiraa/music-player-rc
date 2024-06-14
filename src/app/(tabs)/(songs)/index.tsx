@@ -1,12 +1,13 @@
+import { useMemo } from 'react';
+
+import { ScrollView, View } from 'react-native';
+
+import { TracksList } from '../../../components/TrackList';
+import { trackTitleFilter } from '../../../helpers/filter';
+import { useNavigationSearch } from '../../../hooks/useNavigationSearch';
+import { useTracks } from '../../../store/library';
 import { screenPadding } from '@/constants/tokens';
 import { defaultStyles } from '@/styles';
-
-import { ScrollView, Text, View } from 'react-native';
-import { TracksList } from '../../../components/TrackList';
-import { useNavigationSearch } from '../../../hooks/useNavigationSearch';
-import library from '@/assets/data/library.json';
-import { useMemo } from 'react';
-import { trackTitleFilter } from '../../../helpers/filter';
 
 const SongsScreen = () => {
 	const search = useNavigationSearch({
@@ -15,11 +16,13 @@ const SongsScreen = () => {
 		},
 	});
 
-	const filteredTracks = useMemo(() => {
-		if (!search) return library;
+	const tracks = useTracks();
 
-		return library.filter(trackTitleFilter(search));
-	}, [search, library]);
+	const filteredTracks = useMemo(() => {
+		if (!search) return tracks;
+
+		return tracks.filter(trackTitleFilter(search));
+	}, [search, tracks]);
 
 	return (
 		<View style={defaultStyles.container}>
