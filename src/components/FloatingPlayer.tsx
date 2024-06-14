@@ -1,15 +1,13 @@
-// import { PlayPauseButton, SkipToNextButton } from '@/components/PlayerControls';
-import { unknownTrackImageUri } from '@/constants/images';
-// import { useLastActiveTrack } from '@/hooks/useLastActiveTrack';
-import { defaultStyles } from '@/styles';
 import { useRouter } from 'expo-router';
 import { StyleSheet, Text, TouchableOpacity, View, ViewProps } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { Track, useActiveTrack } from 'react-native-track-player';
-import { PlayPauseButton, SkipToNextButton } from './PlayerControls';
-import { useLastActiveTrack } from '../hooks/useLastActiveTrack';
+
 import { MovingText } from './MovingText';
-// import { MovingText } from './MovingText';
+import { PlayPauseButton, SkipToNextButton } from './player/PlayerControls';
+import { useLastActiveTrack } from '../hooks/useLastActiveTrack';
+import { unknownTrackImageUri } from '@/constants/images';
+import { defaultStyles } from '@/styles';
 
 export const FloatingPlayer = ({ style }: ViewProps) => {
 	const router = useRouter();
