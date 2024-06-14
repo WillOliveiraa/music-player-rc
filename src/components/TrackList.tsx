@@ -7,7 +7,6 @@ import TrackPlayer, { Track } from 'react-native-track-player';
 import { TracksListItem } from './TracksListItem';
 import { unknownTrackImageUri } from '../constants/images';
 import { utilsStyles } from '../styles';
-import library from '@/assets/data/library.json';
 
 export type TracksListProps = Partial<FlatListProps<Track>> & {
 	// id: string;
