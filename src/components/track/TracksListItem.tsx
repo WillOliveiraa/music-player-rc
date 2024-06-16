@@ -6,7 +6,7 @@ import FastImage from 'react-native-fast-image';
 import LoaderKit from 'react-native-loader-kit';
 import { Track, useActiveTrack, useIsPlaying } from 'react-native-track-player';
 
-import { unknownTrackImageUri } from '../constants/images';
+import { unknownTrackImageUri } from '../../constants/images';
 import { colors, fontSize } from '@/constants/tokens';
 import { defaultStyles } from '@/styles';
 

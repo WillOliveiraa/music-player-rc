@@ -1,7 +1,8 @@
+import { ScrollView, Text, View } from 'react-native';
+
 import { screenPadding } from '@/constants/tokens';
 import { defaultStyles } from '@/styles';
 
-import { ScrollView, Text, View } from 'react-native';
 
 const ArtistsScreen = () => {
 	return (

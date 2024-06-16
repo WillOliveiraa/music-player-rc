@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { ScrollView, View } from 'react-native';
 
-import { TracksList } from '../../../components/TrackList';
+import { TracksList } from '../../../components/track/TrackList';
 import { trackTitleFilter } from '../../../helpers/filter';
 import { generateTracksListId } from '../../../helpers/miscellaneous';
 import { useNavigationSearch } from '../../../hooks/useNavigationSearch';
