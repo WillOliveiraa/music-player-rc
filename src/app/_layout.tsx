@@ -9,10 +9,11 @@ import TrackPlayer from 'react-native-track-player';
 import { useLogTrackPlayerState } from '../hooks/useLogTrackPlayerState';
 import { useSetupTrackPlayer } from '../hooks/useSetupTrackPlayer';
 import { colors } from '../constants/tokens';
+import { playbackService } from '../constants/playbackService';
 
 SplashScreen.preventAutoHideAsync();
 
-// TrackPlayer.registerPlaybackService(() => playbackService);
+TrackPlayer.registerPlaybackService(() => playbackService);
 
 const App = () => {
 	const handleTrackPlayerLoaded = useCallback(() => {
