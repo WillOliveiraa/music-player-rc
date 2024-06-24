@@ -8,6 +8,7 @@ import TrackPlayer from 'react-native-track-player';
 
 import { useLogTrackPlayerState } from '../hooks/useLogTrackPlayerState';
 import { useSetupTrackPlayer } from '../hooks/useSetupTrackPlayer';
+import { colors } from '../constants/tokens';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -56,11 +57,11 @@ const RootNavigation = () => {
 				options={{
 					presentation: 'modal',
 					headerStyle: {
-						// backgroundColor: colors.background,
+						backgroundColor: colors.background,
 					},
 					headerTitle: 'Add to playlist',
 					headerTitleStyle: {
-						// color: colors.text,
+						color: colors.text,
 					},
 				}}
 			/>
