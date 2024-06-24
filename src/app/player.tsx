@@ -16,6 +16,7 @@ import { unknownTrackImageUri } from '../constants/images';
 import { colors, fontSize, screenPadding } from '../constants/tokens';
 import { usePlayerBackground } from '../hooks/usePlayerBackground';
 import { defaultStyles, utilsStyles } from '../styles';
+import { useTrackPlayerFavorite } from '../hooks/useTrackPlayerFavorite';
 
 const PlayerScreen = () => {
 	const activeTrack = useActiveTrack();
@@ -23,9 +24,7 @@ const PlayerScreen = () => {
 
 	const { top, bottom } = useSafeAreaInsets();
 
-	// const { isFavorite, toggleFavorite } = useTrackPlayerFavorite();
-	const isFavorite = false;
-	const toggleFavorite = () => {};
+	const { isFavorite, toggleFavorite } = useTrackPlayerFavorite();
 
 	if (!activeTrack) {
 		return (
