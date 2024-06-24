@@ -9,6 +9,8 @@ import { Track, useActiveTrack, useIsPlaying } from 'react-native-track-player';
 import { unknownTrackImageUri } from '../../constants/images';
 import { colors, fontSize } from '@/constants/tokens';
 import { defaultStyles } from '@/styles';
+import { TrackShortcutsMenu } from '../TrackShortcutsMenu';
+import { StopPropagation } from '../utils/StopPropagation';
 
 export type TracksListItemProps = {
 	track: Track;
@@ -79,7 +81,11 @@ export const TracksListItem = ({
 							</Text>
 						)}
 					</View>
-					<Entypo name="dots-three-horizontal" size={18} color={colors.icon} />
+					<StopPropagation>
+						<TrackShortcutsMenu track={track}>
+							<Entypo name="dots-three-horizontal" size={18} color={colors.icon} />
+						</TrackShortcutsMenu>
+					</StopPropagation>
 				</View>
 			</View>
 		</TouchableHighlight>
